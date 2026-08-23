@@ -271,27 +271,65 @@ body { background: #ffffff; color: var(--ink); }
 .ws-card h3 { font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 8px; }
 .ws-card p { color: rgba(26,35,50,0.6); font-size: 0.88rem; line-height: 1.5; }
 
-.stepper {
+/* connected vertical timeline: numbered circle + line, content to the right */
+.timeline { display: flex; flex-direction: column; }
+.timeline-item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px 24px;
+  grid-template-columns: 38px 1fr;
+  column-gap: 20px;
+  position: relative;
+  padding-bottom: 30px;
 }
-.stepper.stepper-compact { grid-template-columns: repeat(3, 1fr); }
-@media (max-width: 860px) {
-  .stepper, .stepper.stepper-compact { grid-template-columns: repeat(2, 1fr); }
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 38px;
+  bottom: -30px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(94,177,255,0.5), rgba(94,177,255,0.08));
 }
-@media (max-width: 560px) {
-  .stepper, .stepper.stepper-compact { grid-template-columns: 1fr; }
-}
+.timeline-item:last-child::before { display: none; }
+
 .step-num {
   display: inline-flex; align-items: center; justify-content: center;
   width: 38px; height: 38px; border-radius: 999px;
   border: 1.5px solid var(--accent); color: var(--accent);
+  background: var(--navy-900);
   font-weight: 800; font-size: 0.8rem;
-  margin-bottom: 14px;
+  position: relative; z-index: 1;
 }
-.step h4 { color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
-.step p { color: rgba(255,255,255,0.55); font-size: 0.85rem; line-height: 1.5; }
+.timeline-item h4 { color: #fff; font-weight: 700; font-size: 1.02rem; margin-bottom: 6px; padding-top: 6px; }
+.timeline-item p { color: rgba(255,255,255,0.55); font-size: 0.88rem; line-height: 1.55; max-width: 42ch; }
+
+/* differentiator cards: bordered panel with a faint index numeral, distinct from ws-card */
+.diff-card {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.09);
+  background: rgba(255,255,255,0.035);
+  border-radius: 12px;
+  padding: 22px 20px;
+  overflow: hidden;
+}
+.diff-index {
+  position: absolute;
+  top: -10px; right: 6px;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.05);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.diff-card h4 {
+  position: relative;
+  color: var(--accent);
+  font-weight: 700; font-size: 0.76rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.diff-card p { position: relative; color: rgba(255,255,255,0.6); font-size: 0.86rem; line-height: 1.55; }
 
 .tag-pill {
   display: inline-block;
