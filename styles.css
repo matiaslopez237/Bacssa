@@ -232,7 +232,7 @@ body { background: #ffffff; color: var(--ink); }
   transition: fill 0.3s;
 }
 .ar-province--active {
-  fill: rgba(94,177,255,0.14);
+  fill: rgba(94,177,255,0.05);
   stroke: rgba(94,177,255,0.55);
 }
 .map-pin {
