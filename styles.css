@@ -223,6 +223,18 @@ body { background: #ffffff; color: var(--ink); }
 .dashboard-bars i { flex: 1; background: linear-gradient(to top, var(--primary), var(--accent)); border-radius: 3px 3px 0 0; }
 
 /* ---- presence map ---- */
+.ar-province {
+  fill: rgba(255,255,255,0.035);
+  stroke: rgba(94,177,255,0.25);
+  stroke-width: 1.1;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  transition: fill 0.3s;
+}
+.ar-province--active {
+  fill: rgba(94,177,255,0.14);
+  stroke: rgba(94,177,255,0.55);
+}
 .map-pin {
   fill: var(--accent);
   filter: drop-shadow(0 0 3px rgba(94,177,255,0.7));
@@ -236,11 +248,25 @@ body { background: #ffffff; color: var(--ink); }
   transform-origin: center;
   animation: pulse 2.4s ease-in-out infinite;
 }
+.office-pin {
+  fill: #f0b429;
+  filter: drop-shadow(0 0 3px rgba(240,180,41,0.7));
+}
+.office-pin-ring {
+  fill: none;
+  stroke: #f0b429;
+  stroke-width: 1.5;
+  stroke-opacity: 0.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pulse 2.4s ease-in-out infinite;
+}
 @keyframes pulse {
   0% { transform: scale(1); stroke-opacity: 0.5; }
   100% { transform: scale(2.2); stroke-opacity: 0; }
 }
-.loc-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); display: inline-block; }
+.loc-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); display: inline-block; flex-shrink: 0; }
+.loc-dot--office { border-radius: 2px; background: #f0b429; transform: rotate(45deg); margin-top: 3px; }
 
 /* ---- well services ---- */
 .pillar-icon {
