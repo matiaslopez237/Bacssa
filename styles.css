@@ -117,18 +117,52 @@ body { background: #ffffff; color: var(--ink); }
   height: 340px;
   border-radius: 16px;
   overflow: hidden;
+  cursor: pointer;
+  transition: flex-basis 0.45s cubic-bezier(0.22,1,0.36,1);
 }
+.service-card--expanded { flex-basis: 400px; }
 .service-card img { width: 100%; height: 100%; object-fit: cover; }
 .service-card-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(to top, rgba(6,13,26,0.85) 0%, rgba(6,13,26,0.1) 55%, transparent 100%);
-  display: flex; align-items: flex-end; padding: 20px;
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end; padding: 20px;
+  transition: background 0.4s ease;
+}
+.service-card--expanded .service-card-overlay {
+  background: linear-gradient(to top, rgba(6,13,26,0.94) 0%, rgba(6,13,26,0.6) 48%, rgba(6,13,26,0.05) 100%);
 }
 .service-card-overlay h3 {
   color: #fff; font-weight: 700; font-size: 1.05rem; position: relative; padding-bottom: 10px;
 }
+.service-card-desc {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.4s ease;
+}
+.service-card--expanded .service-card-desc {
+  max-height: 140px;
+  opacity: 1;
+  margin-top: 4px;
+}
 .service-card-overlay h3::after {
   content: ""; position: absolute; bottom: 0; left: 0; width: 26px; height: 2px; background: var(--accent);
+}
+
+/* Desktop/mouse: expand on hover, no click needed. Touch devices keep the tap-to-expand JS behavior. */
+@media (hover: hover) and (pointer: fine) {
+  .service-card:hover { flex-basis: 400px; }
+  .service-card:hover .service-card-overlay {
+    background: linear-gradient(to top, rgba(6,13,26,0.94) 0%, rgba(6,13,26,0.6) 48%, rgba(6,13,26,0.05) 100%);
+  }
+  .service-card:hover .service-card-desc {
+    max-height: 140px;
+    opacity: 1;
+    margin-top: 4px;
+  }
 }
 
 #services-dots span {
@@ -160,7 +194,10 @@ body { background: #ffffff; color: var(--ink); }
 }
 .tablet {
   position: relative;
-  transform: rotateX(9deg) rotateY(-16deg) rotateZ(1deg);
+  transform-origin: right center;
+  transform: rotateX(9deg) rotateY(-82deg) rotateZ(1deg);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.22,1,0.36,1), opacity 0.7s ease-out;
   transform-style: preserve-3d;
   background: linear-gradient(150deg, #1c2a44, #0a1424);
   border-radius: 20px;
@@ -168,6 +205,10 @@ body { background: #ffffff; color: var(--ink); }
   box-shadow:
     28px 46px 60px -22px rgba(0,0,0,0.6),
     0 0 0 1px rgba(94,177,255,0.14);
+}
+.tablet-wrap.in-view .tablet {
+  transform: rotateX(9deg) rotateY(-16deg) rotateZ(1deg);
+  opacity: 1;
 }
 .tablet::before {
   content: "";
@@ -201,81 +242,97 @@ body { background: #ffffff; color: var(--ink); }
 .dash-icon.active { background: var(--accent); }
 
 .dash-content { flex: 1; padding: 12px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
-.dash-row { display: grid; grid-template-columns: 1.6fr 1fr; gap: 10px; }
-.dash-map-card, .dash-stat-card, .dash-chart-card {
-  background: #0d1b33; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); padding: 8px;
-}
-.dash-world { width: 100%; height: auto; display: block; }
-.dash-world .land { fill: rgba(255,255,255,0.07); }
-.dash-world .flow {
-  fill: none; stroke: rgba(94,177,255,0.55); stroke-width: 0.45;
-  stroke-dasharray: 2 1.6; animation: flow-move 3s linear infinite;
-}
-@keyframes flow-move { to { stroke-dashoffset: -21; } }
-.dash-world .wpin { fill: var(--accent); filter: drop-shadow(0 0 2px rgba(94,177,255,0.9)); }
 
-.dash-stat-card { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-.dash-legend { list-style: none; font-size: 0.52rem; color: rgba(255,255,255,0.5); display: flex; flex-direction: column; gap: 3px; }
-.dash-legend i { width: 6px; height: 6px; border-radius: 999px; display: inline-block; margin-right: 5px; }
+/* ---- grafana-style panels ---- */
+.grafana-panel {
+  background: #0b0e14;
+  border-radius: 6px;
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 8px 10px 10px;
+}
+.grafana-panel-head {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 0.56rem; font-weight: 600; letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.55); margin-bottom: 6px;
+}
+.grafana-dots { color: rgba(255,255,255,0.3); }
 
-.ring-chart {
-  width: 56px; height: 56px; border-radius: 999px; margin: 0 auto;
-  background: conic-gradient(var(--accent) 0 58%, rgba(255,255,255,0.08) 58% 100%);
-  display: flex; align-items: center; justify-content: center;
+.grafana-lines { width: 100%; height: 60px; display: block; }
+.g-grid { stroke: rgba(255,255,255,0.06); stroke-width: 1; }
+.g-area { fill: url(#g-area-fill); opacity: 0.5; }
+.g-line { fill: none; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.g-line--blue { stroke: #5eb1ff; }
+.g-line--green { stroke: #73bf69; }
+.g-line--yellow { stroke: #fade2a; }
+
+.grafana-legend {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  font-size: 0.5rem; color: rgba(255,255,255,0.5); margin-top: 6px;
 }
-.ring-chart span {
-  width: 40px; height: 40px; border-radius: 999px; background: #0d1b33;
-  display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 0.62rem; font-weight: 700;
-}
-.dashboard-bars { display: flex; align-items: flex-end; gap: 5px; height: 44px; }
-.dashboard-bars i { flex: 1; background: linear-gradient(to top, var(--primary), var(--accent)); border-radius: 3px 3px 0 0; }
+.grafana-legend i { width: 6px; height: 6px; border-radius: 2px; display: inline-block; margin-right: 4px; }
+.grafana-legend b { color: rgba(255,255,255,0.85); font-weight: 700; margin-left: 2px; }
+
+.dash-row2 { display: grid; grid-template-columns: 1fr 1.3fr; gap: 10px; }
+
+.grafana-panel--stat { display: flex; flex-direction: column; justify-content: center; }
+.grafana-stat-value { color: #fff; font-size: 1.6rem; font-weight: 800; line-height: 1; }
+.grafana-stat-value small { font-size: 0.9rem; color: rgba(255,255,255,0.5); font-weight: 600; }
+.grafana-stat-trend { color: #73bf69; font-size: 0.5rem; font-weight: 600; margin-top: 6px; }
+
+.grafana-bargauge { display: flex; flex-direction: column; gap: 7px; }
+.gb-row { display: grid; grid-template-columns: 44px 1fr 26px; align-items: center; gap: 6px; font-size: 0.5rem; color: rgba(255,255,255,0.55); }
+.gb-track { height: 6px; background: rgba(255,255,255,0.07); border-radius: 3px; overflow: hidden; }
+.gb-fill { height: 100%; border-radius: 3px; }
+.gb-row b { color: rgba(255,255,255,0.75); font-weight: 700; text-align: right; }
 
 /* ---- presence map ---- */
 .ar-province {
-  fill: rgba(255,255,255,0.035);
-  stroke: rgba(94,177,255,0.25);
+  fill: rgba(255,255,255,0.02);
+  stroke: rgba(94,177,255,0.14);
   stroke-width: 1.1;
   stroke-linejoin: round;
   vector-effect: non-scaling-stroke;
   transition: fill 0.3s;
 }
 .ar-province--active {
-  fill: rgba(94,177,255,0.05);
-  stroke: rgba(94,177,255,0.55);
+  fill: rgba(94,177,255,0.32);
+  stroke: rgba(148,204,255,0.95);
+  stroke-width: 1.4;
+  filter: drop-shadow(0 0 7px rgba(94,177,255,0.85));
 }
-.map-pin {
+
+.map-hotspot {
   fill: var(--accent);
-  filter: drop-shadow(0 0 3px rgba(94,177,255,0.7));
+  stroke: rgba(6,13,26,0.65);
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 4px rgba(94,177,255,0.85));
+  cursor: pointer;
+  transition: r 0.15s ease;
 }
-.map-pin-ring {
-  fill: none;
-  stroke: var(--accent);
-  stroke-width: 1.5;
-  stroke-opacity: 0.4;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pulse 2.4s ease-in-out infinite;
-}
-.office-pin {
+.map-hotspot:hover { r: 6; }
+.map-hotspot--office {
   fill: #f0b429;
-  filter: drop-shadow(0 0 3px rgba(240,180,41,0.7));
+  filter: drop-shadow(0 0 4px rgba(240,180,41,0.85));
 }
-.office-pin-ring {
-  fill: none;
-  stroke: #f0b429;
-  stroke-width: 1.5;
-  stroke-opacity: 0.4;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pulse 2.4s ease-in-out infinite;
+.map-tooltip {
+  position: absolute;
+  left: 0; top: 0;
+  pointer-events: none;
+  background: rgba(6,13,26,0.96);
+  border: 1px solid rgba(94,177,255,0.4);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translate(-50%, calc(-100% - 10px));
+  transition: opacity 0.15s ease;
+  z-index: 30;
 }
-@keyframes pulse {
-  0% { transform: scale(1); stroke-opacity: 0.5; }
-  100% { transform: scale(2.2); stroke-opacity: 0; }
-}
-.loc-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); display: inline-block; flex-shrink: 0; }
-.loc-dot--office { border-radius: 2px; background: #f0b429; transform: rotate(45deg); margin-top: 3px; }
+.map-tooltip.visible { opacity: 1; }
 
 /* ---- well services ---- */
 .pillar-icon {
