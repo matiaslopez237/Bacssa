@@ -67,4 +67,38 @@ if (track && dotsWrap) {
   track.addEventListener('scroll', () => {
     window.requestAnimationFrame(updateActiveDot);
   });
+
+  // Drag-to-scroll with mouse (touch keeps native momentum scrolling)
+  let isDragging = false;
+  let dragStartX = 0;
+  let scrollStart = 0;
+  let dragMoved = false;
+
+  track.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    dragMoved = false;
+    dragStartX = e.pageX;
+    scrollStart = track.scrollLeft;
+    track.classList.add('dragging');
+    e.preventDefault();
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    const dx = e.pageX - dragStartX;
+    if (Math.abs(dx) > 3) dragMoved = true;
+    track.scrollLeft = scrollStart - dx;
+  });
+
+  const stopDragging = () => {
+    isDragging = false;
+    track.classList.remove('dragging');
+  };
+  window.addEventListener('mouseup', stopDragging);
+  track.addEventListener('mouseleave', () => { if (isDragging) stopDragging(); });
+
+  // Prevent the trailing click from firing after an actual drag
+  track.addEventListener('click', (e) => {
+    if (dragMoved) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
 }

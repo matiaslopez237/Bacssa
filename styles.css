@@ -102,6 +102,15 @@ body { background: #ffffff; color: var(--ink); }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+#services-track { cursor: grab; }
+#services-track.dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+  user-select: none;
+}
+#services-track.dragging .service-card { pointer-events: none; }
+
 .service-card {
   position: relative;
   flex: 0 0 260px;
