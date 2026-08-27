@@ -445,10 +445,15 @@ body { background: #ffffff; color: var(--ink); }
 
 .location-list li {
   transition: color 0.2s ease, text-shadow 0.2s ease;
+  text-underline-offset: 4px;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition-property: color, text-shadow, text-decoration-color;
 }
 .location-list li.is-highlighted {
   color: #fff;
   text-shadow: 0 0 10px rgba(94,177,255,0.8);
+  text-decoration-color: var(--accent);
 }
 .map-tooltip {
   position: absolute;
