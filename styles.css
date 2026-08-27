@@ -446,12 +446,32 @@ body { background: #ffffff; color: var(--ink); }
   filter: drop-shadow(0 0 4px rgba(240,180,41,0.85));
 }
 
+.location-list {
+  list-style: none;
+}
 .location-list li {
+  position: relative;
+  padding-left: 20px;
   transition: color 0.2s ease, text-shadow 0.2s ease;
   text-underline-offset: 4px;
   text-decoration: underline;
   text-decoration-color: transparent;
   transition-property: color, text-shadow, text-decoration-color;
+}
+.location-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 5px rgba(94,177,255,0.85);
+}
+.location-list--office li::before {
+  background: #f0b429;
+  box-shadow: 0 0 5px rgba(240,180,41,0.85);
 }
 .location-list li.is-highlighted {
   color: #fff;
