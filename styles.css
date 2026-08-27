@@ -437,7 +437,7 @@ body { background: #ffffff; color: var(--ink); }
   cursor: pointer;
   transition: r 0.15s ease;
 }
-.map-hotspot:hover { r: 6; }
+.map-hotspot:hover, .map-hotspot.is-highlighted { r: 6; }
 .map-hotspot--office {
   fill: #f0b429;
   filter: drop-shadow(0 0 4px rgba(240,180,41,0.85));

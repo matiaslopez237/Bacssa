@@ -143,10 +143,12 @@ if (mapTooltip && hotspots.length) {
       mapTooltip.style.left = `${spotRect.left + spotRect.width / 2 - containerRect.left}px`;
       mapTooltip.style.top = `${spotRect.top - containerRect.top}px`;
       mapTooltip.classList.add('visible');
+      spot.classList.add('is-highlighted');
       if (matchingItem) matchingItem.classList.add('is-highlighted');
     };
     const hideTooltip = () => {
       mapTooltip.classList.remove('visible');
+      spot.classList.remove('is-highlighted');
       if (matchingItem) matchingItem.classList.remove('is-highlighted');
     };
     spot.addEventListener('mouseenter', showTooltip);
@@ -156,6 +158,10 @@ if (mapTooltip && hotspots.length) {
       const query = encodeURIComponent(spot.dataset.maps || spot.dataset.label);
       window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank', 'noopener');
     });
+    if (matchingItem) {
+      matchingItem.addEventListener('mouseenter', showTooltip);
+      matchingItem.addEventListener('mouseleave', hideTooltip);
+    }
   });
   document.addEventListener('touchstart', (e) => {
     if (!e.target.closest('.map-hotspot')) hideAllTooltips();
