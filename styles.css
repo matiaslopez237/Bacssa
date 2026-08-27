@@ -15,8 +15,11 @@ body { background: #ffffff; color: var(--ink); }
 
 .text-primary { color: var(--primary); }
 .text-accent { color: var(--accent); }
+.text-accent-80 { color: rgba(94,177,255,0.8); }
+.text-accent-50 { color: rgba(94,177,255,0.5); }
 .text-ink { color: var(--ink); }
 .bg-navy-900 { background-color: var(--navy-900); }
+.bg-navy-900-98 { background-color: rgba(10,22,40,0.98); }
 .bg-navy-950 { background-color: var(--navy-950); }
 
 .eyebrow {
