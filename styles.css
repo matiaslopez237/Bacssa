@@ -76,13 +76,6 @@ body { background: #ffffff; color: var(--ink); }
   line-height: 1;
 }
 
-.dot {
-  width: 6px; height: 6px; border-radius: 999px;
-  background: rgba(255,255,255,0.3);
-  display: inline-block;
-}
-.dot.active { background: var(--accent); width: 22px; border-radius: 999px; transition: all .3s; }
-
 /* ---- hex pattern (light sections) ---- */
 .hex-pattern {
   position: absolute; inset: 0; pointer-events: none;
