@@ -503,7 +503,7 @@ body { background: #ffffff; color: var(--ink); }
 .ws-card h3 { font-weight: 700; font-size: 1.02rem; color: var(--ink); margin-bottom: 8px; }
 .ws-card p { color: rgba(26,35,50,0.6); font-size: 0.88rem; line-height: 1.5; }
 
-/* well services cards: colored accent + more relief so they don't read as flat */
+/* well services cards: subtle brand accent + more relief so they don't read as flat */
 #well-services .ws-card {
   position: relative;
   overflow: hidden;
@@ -513,22 +513,15 @@ body { background: #ffffff; color: var(--ink); }
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 4px;
-  background: var(--ws-accent);
+  height: 3px;
+  background: var(--primary);
+  opacity: 0.7;
 }
 #well-services .ws-card:hover {
   border-color: transparent;
   transform: translateY(-5px);
-  box-shadow: 0 22px 38px -18px var(--ws-shadow);
+  box-shadow: 0 22px 38px -18px rgba(29,95,214,0.35);
 }
-#well-services .ws-card-icon {
-  background: var(--ws-bg);
-  color: var(--ws-accent);
-}
-#well-services .ws-card--amber  { --ws-accent: #d68a10; --ws-bg: rgba(240,180,41,0.16); --ws-shadow: rgba(214,138,16,0.4); }
-#well-services .ws-card--blue   { --ws-accent: #1d5fd6; --ws-bg: rgba(29,95,214,0.1);   --ws-shadow: rgba(29,95,214,0.4); }
-#well-services .ws-card--teal   { --ws-accent: #0d9488; --ws-bg: rgba(20,184,166,0.16); --ws-shadow: rgba(13,148,136,0.4); }
-#well-services .ws-card--purple { --ws-accent: #7c3aed; --ws-bg: rgba(139,92,246,0.16); --ws-shadow: rgba(124,58,237,0.4); }
 
 /* connected vertical timeline: numbered circle + line, content to the right */
 .timeline { display: flex; flex-direction: column; }
