@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body class="antialiased">
 
@@ -26,6 +26,8 @@
       <a href="#sapiens" class="hover:text-white transition">Sapiens</a>
       <a href="#well-services" class="hover:text-white transition">Well Services</a>
       <a href="#contacto" class="hover:text-white transition">Contacto</a>
+      <a href="#clientes" class="hover:text-white transition">Clientes</a>
+      <a href="#empleo" class="hover:text-white transition">Empleo</a>
     </nav>
 
     <div class="flex items-center gap-4">
@@ -47,6 +49,8 @@
       <a href="#sapiens">Sapiens</a>
       <a href="#well-services">Well Services</a>
       <a href="#contacto">Contacto</a>
+      <a href="#clientes">Clientes</a>
+      <a href="#empleo">Empleo</a>
     </nav>
   </div>
 </header>
@@ -81,12 +85,6 @@
         <div>
           <p class="stat-num" data-count="25">0</p>
           <p class="text-white/60 text-xs tracking-wide">años de trayectoria</p>
-        </div>
-      </div>
-      <div class="flex gap-8">
-        <div>
-          <p class="stat-num" data-count="2">0</p>
-          <p class="text-white/60 text-xs tracking-wide">países</p>
         </div>
       </div>
     </div>
@@ -305,24 +303,37 @@
                   <path d="M0,85 L40,80 L80,82 L120,75 L160,78 L200,70 L240,74 L280,68 L300,70" class="g-line g-line--yellow"/>
                 </svg>
                 <div class="grafana-legend">
-                  <span><i style="background:#5eb1ff"></i>Caudal <b>128 m³/h</b></span>
-                  <span><i style="background:#73bf69"></i>Presión <b>94%</b></span>
-                  <span><i style="background:#fade2a"></i>Temp. <b>62°C</b></span>
+                  <span><i style="background:#5eb1ff"></i>Caudal</span>
+                  <span><i style="background:#73bf69"></i>Presión</span>
+                  <span><i style="background:#fade2a"></i>Temperatura</span>
                 </div>
               </div>
               <div class="dash-row2">
                 <div class="grafana-panel grafana-panel--stat">
-                  <div class="grafana-panel-head"><span>Eficiencia operativa</span></div>
-                  <div class="grafana-stat-value">94.2<small>%</small></div>
-                  <div class="grafana-stat-trend">▲ 2.4% vs. semana anterior</div>
+                  <div class="grafana-panel-head"><span>Rendimiento</span></div>
+                  <div class="ring-chart"></div>
                 </div>
-                <div class="grafana-panel grafana-panel--bars">
-                  <div class="grafana-panel-head"><span>Bases — actividad</span></div>
-                  <div class="grafana-bargauge">
-                    <div class="gb-row"><span>Neuquén</span><div class="gb-track"><div class="gb-fill" style="width:88%;background:#5eb1ff"></div></div><b>88%</b></div>
-                    <div class="gb-row"><span>Chubut</span><div class="gb-track"><div class="gb-fill" style="width:72%;background:#73bf69"></div></div><b>72%</b></div>
-                    <div class="gb-row"><span>Santa Cruz</span><div class="gb-track"><div class="gb-fill" style="width:65%;background:#fade2a"></div></div><b>65%</b></div>
+                <div class="grafana-panel">
+                  <div class="grafana-panel-head"><span>Tendencia</span></div>
+                  <div class="mini-bars">
+                    <i style="height:35%"></i><i style="height:58%"></i><i style="height:44%"></i><i style="height:72%"></i><i style="height:52%"></i><i style="height:80%"></i>
                   </div>
+                </div>
+                <div class="grafana-panel">
+                  <div class="grafana-panel-head"><span>Estado</span></div>
+                  <div class="status-grid">
+                    <i class="s-ok"></i><i class="s-ok"></i><i class="s-warn"></i><i class="s-ok"></i>
+                    <i class="s-ok"></i><i class="s-ok"></i><i class="s-ok"></i><i class="s-warn"></i>
+                    <i class="s-ok"></i><i class="s-ok"></i><i class="s-ok"></i><i class="s-ok"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="grafana-panel">
+                <div class="grafana-panel-head"><span>Actividad por zona</span></div>
+                <div class="grafana-bargauge">
+                  <div class="gb-row"><div class="gb-track"><div class="gb-fill" style="width:88%;background:#5eb1ff"></div></div></div>
+                  <div class="gb-row"><div class="gb-track"><div class="gb-fill" style="width:72%;background:#73bf69"></div></div></div>
+                  <div class="gb-row"><div class="gb-track"><div class="gb-fill" style="width:65%;background:#fade2a"></div></div></div>
                 </div>
               </div>
             </div>
@@ -543,6 +554,75 @@
   </div>
 </section>
 
+<!-- ===== CLIENTES ACTUALES ===== -->
+<section id="clientes" class="relative bg-navy-900 py-24 overflow-hidden border-t border-white/5">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 text-center mb-14">
+    <p class="eyebrow text-accent mb-4">Clientes actuales</p>
+    <h2 class="text-white font-extrabold text-3xl md:text-5xl leading-tight">Empresas que confían en <span class="text-accent">BACSSA</span></h2>
+    <p class="text-white/55 mt-6 max-w-xl mx-auto leading-relaxed">Operadoras, empresas de servicios y proveedores líderes de la industria Oil &amp; Gas.</p>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-track">
+      <div class="client-logo"><img src="assets/clients/ypf.svg" alt="YPF" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/totalenergies.svg" alt="TotalEnergies" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/shell.svg" alt="Shell" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/chevron.svg" alt="Chevron" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/vista.svg" alt="Vista Oil &amp; Gas" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/pcr.jpg" alt="PCR" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/calfrac.png" alt="Calfrac" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/cgc.png" alt="CGC" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/nabors.svg" alt="Nabors" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/nov.svg" alt="NOV Tuboscope" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/slb.svg" alt="SLB" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/halliburton.svg" alt="Halliburton" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/weatherford.svg" alt="Weatherford" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/pae.png" alt="PAE" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/championx.png" alt="ChampionX" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/pecom.png" alt="PECOM" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/aesa.jpg" alt="AESA" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/tecpetrol.png" alt="Tecpetrol" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/capex.jpg" alt="CAPEX" loading="lazy"></div>
+      <div class="client-logo"><img src="assets/clients/hp.svg" alt="H&amp;P" loading="lazy"></div>
+      <!-- duplicated set for seamless loop -->
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/ypf.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/totalenergies.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/shell.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/chevron.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/vista.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/pcr.jpg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/calfrac.png" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/cgc.png" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/nabors.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/nov.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/slb.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/halliburton.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/weatherford.svg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/pae.png" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/championx.png" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/pecom.png" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/aesa.jpg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/tecpetrol.png" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/capex.jpg" alt="" loading="lazy"></div>
+      <div class="client-logo" aria-hidden="true"><img src="assets/clients/hp.svg" alt="" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRABAJÁ CON NOSOTROS ===== -->
+<section id="empleo" class="relative bg-navy-950 py-24 overflow-hidden border-t border-white/5">
+  <div class="circuit-pattern"></div>
+  <div class="max-w-3xl mx-auto px-5 md:px-8 text-center relative">
+    <p class="eyebrow text-accent mb-4">Trabajá con nosotros</p>
+    <h2 class="text-white font-extrabold text-3xl md:text-5xl leading-tight">¿Querés formar parte de nuestro <span class="text-accent">equipo</span>?</h2>
+    <p class="text-white/55 mt-6 max-w-xl mx-auto leading-relaxed">Sumate a los más de 500 profesionales que ya forman parte de BACSSA. Conocé las búsquedas activas y postulate.</p>
+    <a href="https://cv.bacssa.com" target="_blank" rel="noopener" class="cta-btn mt-8 inline-flex">
+      Postularme ahora
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <p class="text-white/30 text-xs mt-5">Ingresá a <span class="text-white/55 font-semibold">cv.bacssa.com</span></p>
+  </div>
+</section>
+
 <!-- ===== FOOTER ===== -->
 <footer class="bg-navy-950 py-14">
   <div class="max-w-7xl mx-auto px-5 md:px-8">
@@ -558,6 +638,8 @@
         <a href="#sapiens" class="hover:text-white transition">Sapiens</a>
         <a href="#well-services" class="hover:text-white transition">Well Services</a>
         <a href="#contacto" class="hover:text-white transition">Contacto</a>
+        <a href="#clientes" class="hover:text-white transition">Clientes</a>
+        <a href="#empleo" class="hover:text-white transition">Empleo</a>
       </nav>
       <div>
         <p class="text-white font-bold text-sm mb-3">Contactanos</p>
