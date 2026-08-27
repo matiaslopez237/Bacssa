@@ -507,7 +507,8 @@ body { background: #ffffff; color: var(--ink); }
 #well-services .ws-card {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 12px 26px -18px rgba(15,23,42,0.28);
+  border-color: transparent;
+  box-shadow: 0 16px 32px -14px rgba(15,23,42,0.32);
 }
 #well-services .ws-card::before {
   content: "";
@@ -520,7 +521,7 @@ body { background: #ffffff; color: var(--ink); }
 #well-services .ws-card:hover {
   border-color: transparent;
   transform: translateY(-5px);
-  box-shadow: 0 22px 38px -18px rgba(29,95,214,0.35);
+  box-shadow: 0 26px 42px -14px rgba(29,95,214,0.4);
 }
 
 /* connected vertical timeline: numbered circle + line, content to the right */
