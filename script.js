@@ -1,12 +1,3 @@
-// Header background on scroll
-const header = document.getElementById('site-header');
-const onScroll = () => {
-  if (window.scrollY > 40) header.classList.add('scrolled');
-  else header.classList.remove('scrolled');
-};
-window.addEventListener('scroll', onScroll);
-onScroll();
-
 // Mobile menu toggle
 const menuToggle = document.getElementById('menu-toggle');
 const mobileMenu = document.getElementById('mobile-menu');
