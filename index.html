@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="styles.css?v=19">
+<link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body class="antialiased">
 
@@ -20,21 +20,21 @@
     </a>
 
     <nav class="hidden lg:flex items-center gap-9 text-sm font-medium text-white/90">
-      <a href="#home" class="hover:text-white transition">Inicio</a>
-      <a href="#nosotros" class="hover:text-white transition">Nosotros</a>
-      <a href="#servicios" class="hover:text-white transition">Servicios</a>
-      <a href="#sapiens" class="hover:text-white transition">Sapiens</a>
-      <a href="#well-services" class="hover:text-white transition">Well Services</a>
-      <a href="#contacto" class="hover:text-white transition">Contacto</a>
-      <a href="#clientes" class="hover:text-white transition">Clientes</a>
-      <a href="#empleo" class="hover:text-white transition">Empleo</a>
+      <a href="#home" class="nav-link">Inicio</a>
+      <a href="#nosotros" class="nav-link">Nosotros</a>
+      <a href="#servicios" class="nav-link">Servicios</a>
+      <a href="#sapiens" class="nav-link">Sapiens</a>
+      <a href="#well-services" class="nav-link">Well Services</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
+      <a href="#clientes" class="nav-link">Clientes</a>
+      <a href="#empleo" class="nav-link">Empleo</a>
     </nav>
 
     <div class="flex items-center gap-4">
-      <button aria-label="Buscar" class="text-white/90 hover:text-white transition">
+      <button aria-label="Buscar" class="text-white/90 icon-btn">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
       </button>
-      <button id="menu-toggle" aria-label="Menú" class="text-white/90 hover:text-white transition lg:hidden">
+      <button id="menu-toggle" aria-label="Menú" class="text-white/90 icon-btn lg:hidden">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
@@ -510,20 +510,20 @@
       <div class="grid sm:grid-cols-2 gap-x-8 gap-y-8 mt-9">
         <div>
           <p class="eyebrow text-accent/80 mb-3" style="font-size:0.68rem;">Bases</p>
-          <ul class="space-y-2 text-white/55 text-xs leading-relaxed">
-            <li>Rincón de los Sauces — Neuquén</li>
-            <li>Añelo — Vaca Muerta</li>
-            <li>Comodoro Rivadavia — Chubut</li>
-            <li>Las Heras — Santa Cruz</li>
-            <li>Catriel — Río Negro</li>
-            <li>Río Grande — Tierra del Fuego</li>
+          <ul class="location-list space-y-2 text-white/55 text-xs leading-relaxed">
+            <li data-label="Rincón de los Sauces — Neuquén">Rincón de los Sauces — Neuquén</li>
+            <li data-label="Añelo — Vaca Muerta">Añelo — Vaca Muerta</li>
+            <li data-label="Comodoro Rivadavia — Chubut">Comodoro Rivadavia — Chubut</li>
+            <li data-label="Las Heras — Santa Cruz">Las Heras — Santa Cruz</li>
+            <li data-label="Catriel — Río Negro">Catriel — Río Negro</li>
+            <li data-label="Río Grande — Tierra del Fuego">Río Grande — Tierra del Fuego</li>
           </ul>
         </div>
         <div>
           <p class="eyebrow text-accent/80 mb-3" style="font-size:0.68rem;">Oficinas</p>
-          <ul class="space-y-2 text-white/55 text-xs leading-relaxed">
-            <li>Carlos Pellegrini 2131 — Neuquén, Neuquén</li>
-            <li>Juana Manso 1750 — Puerto Madero</li>
+          <ul class="location-list space-y-2 text-white/55 text-xs leading-relaxed">
+            <li data-label="Oficina Neuquén — Carlos Pellegrini 2131">Carlos Pellegrini 2131 — Neuquén, Neuquén</li>
+            <li data-label="Oficina Puerto Madero — Juana Manso 1750">Juana Manso 1750 — Puerto Madero</li>
           </ul>
         </div>
       </div>
@@ -557,14 +557,14 @@
           <path class="ar-province ar-province--active ar-basin--neuquina" data-name="La Pampa" d="M404.1 423.4l0-18.9-0.2-14.3-0.6-3.1-0.1-0.3-0.1-0.4 0.1-1.1 0.2-1.7 0.3-0.3 0.4-0.2 23 0 1.6 0 9.2 0 11.4 0 0.8 0 18.5 0 0.8 0 0.1 0 0-4 0.1-21.4 12.4 0 11 0 11.8 0 0 6.9 0 5.7-0.1 11.5 0 0.9 0 10.7 0 5.8 0 5.8 0 11.3 0.1 11.7-0.1 1.2 0.1 12.9 0 14.7-0.1 13.3-1.8-0.2-0.8-0.3-0.6-0.6-2.7-1.9-0.7-0.3-0.4-0.5-0.5-0.9-0.3-0.3-0.3-0.2-0.8-0.5-1.4-0.3-0.4-0.2-1.8-2.2-0.3-0.3-1-0.1-0.4-0.2-1.5-1-6.7-2.6-1.5 0-5.7-1.1-0.4 0.2-0.7-0.2-1.5 0.2-0.5-0.4-0.2 0-2.8 0-3.1 0.6-1-0.1-0.9 0.4-0.3 0-0.3-0.1-0.8-0.6-1.8-0.7-1.1-0.2-0.6 0-0.4 0.3-0.3 0.3-0.5 0.3-0.4 0.2-0.4 0-0.2-0.1-0.2-0.2-0.2-0.2-0.3-0.1-0.9 0-0.2 0-0.4-0.4-0.2-0.1-0.3-0.1-0.8-0.1-0.7-0.3-0.6-0.1-0.4-0.3-0.2 0-5.3-0.7-2.8 0.5-0.9 0-2.4-0.7-0.6 0-0.5-0.2-0.2-0.4-0.2-1.3-0.2-0.8-0.5-0.7-0.7-0.6-0.7-0.4-0.9-0.2-0.2-0.1-0.4-0.3-0.1-0.1-0.2-0.1-0.8-0.5-1-0.1-0.4-0.2-0.7-0.5-0.9-0.2-2.1-1.1-0.2 0-0.1-0.2-0.3-0.4-0.3-0.3-0.8-1.1-0.5-1.4 0-0.3 0-0.6-0.1-0.4-0.2-0.4-0.5-0.2-0.4 0-1.8 0.3-0.9 0.6-0.6 0.2-1.5-0.2-0.6 0.3-1.5 0.1-0.8-0.4-0.7-0.7-0.6-0.8-1.1-2.4-0.6-0.6-0.8-0.4-0.2 0-0.6 0.2-0.2 0-0.3-0.3-0.2 0-0.2-0.2-0.2-0.6-0.1-0.5-0.1-0.5 0.1-1.3 0.5-0.9 0.6-0.6 1.4-1 0.5-0.7 0.3-1 0-1.2-0.3-0.8-0.5-0.9-0.6-0.8-0.6-0.5-0.9-0.5-8.2-1.1z"/>
           <path class="ar-province" data-name="Córdoba" d="M463 238.1l4.5-1.2 1-0.6 1.8-1.9 2.2-2.5 0.2-0.4 0.1-0.5-0.6-5.5 0.2-0.8 1.4-0.5 6-1.5 3.9-1.1 2.3-0.5 0.8 0 4.1 1 0.2 0.1 0 0.1 0.1 0.3-0.1 0.6 0 0.3 0.1 0.2 0.3 0.2 1.5 0.9 0.1 0.1 0.2 0.3 0.2 0.2 0.1 0.1 1.3 0.2 0.2 0.1 0.1 0.1 0.3 0.2 0.2 0.2 0.2 0.1 0.2 0 1.2 0.1 0.4 0 2.4-0.4 0.3 0.1 1.5 0.4 0.2 0.1 0.8-0.2 0.2 0 0.1 0.1 0.1 0.1 0 0.1 0 0.1 0 0.1-0.1 0.7 0 0.1 0.1 0.2 0.2 0 0.7 0.1 0.2 0.1 0.2 0.1 0 0.1 0 0.2 0 0.4 0.1 0.1 0.1 0.2 0.5 0.1 11.8 0 7-0.1 3.4 0.2 1 0.6 3.2 8.4-1 6.3 0.1 0.6 0.1 0.4 4.6 5.1 1 1.4-0.2 1.4-5.3 19.9-0.4 0.8-0.9 0.8-0.8 0.8-0.3 0.3 0 0.3 0 0.1 0.3 0.6 0.1 0.1 0 0.1 0 0.2 0 0.3-0.1 1.1 0 0.3 0.1 1.5 0.1 0.1 0 0.1 0 0.1 0.3 0.5 0.2 0.2 0.1 0.1 0 0.2 0 0.2-0.3 0.7-0.2 0.4-0.1 0.4-0.1 0.6 0 2 0.5 0.6 0.5 0.4 0.6 0.8 0.2 0.1 0.6 0.3 0.4 0.3 0.1 0.1 0.1 0.2 0.6 2.1 0.1 0.4 0.5 0.8 1.5 1.1 0.2 0.3 0.3 0.3 0.1 0.2 0.1 0.5 0.2 0.8 0 0.8 0.1 0.1 0.1 0.2 0.1 0.1 0.2 0.2 0.1 0.1 0.1 0.2 0 0.3-0.1 0.2 0 0.1 0 0.2-0.1 0.2-0.1 0.1-0.3 0.4 0 0.1 0 0.2 0.1 0.1 0.2 0 0.6 0.1 0.1 0.1 0.2 0 0.1 0.1 0 0.1 0.6 1.1 0.4 0.8 0 0.2 0.1 0.1 0.6 0.4 0.1 0.1 0 0.2 0.2 0.3 0 0.2 0 0.2 0 0.2-0.1 0.4-0.3 0.6-0.1 0.5 0 1.5 0 0.6-0.1 0.5-0.1 0.1-0.3 0.6-0.7 0.8-0.3 0.3-0.3 0.1-0.1 0.1-0.1 0-0.3 0.1-0.2 0-0.3-0.1-0.5 0.8-4.7 7.6-6.3 10.3-8.4 13.7-10.1-0.1-0.7 0.9-0.1 4.1-0.1 10.7-11.8 0-11 0-12.4 0 0-0.1 0-26-1-18.8 0.1-0.2 0.1-0.3 0.6-1.1 0.1-0.1 0-0.1 0.1-0.1 0.2 0 0.5-0.1 0.1-0.1 0.2-0.1 0.1-0.2 0-0.1 0-0.2-0.2-0.5 0-0.4 0.1-0.3 0.5-1.1 0.1-0.3 0-0.2-0.1-0.4-0.1-0.3 0.1-0.2 0-0.2 0.8-1.5 0.1-0.2 0-0.2 0-0.9 0.1-0.2 0-0.2 0.3-0.5 0.1-0.2 0-0.1 0-0.4 0-0.3 0-0.1 0.1-0.2 0.3-0.3 0.1-0.1 0.1-0.2 0.1-0.2 0.1-1 0.5-1.1 0.1-0.7 0.1-0.8 0-0.2-0.1-0.2-0.1-0.5-0.1-0.4-0.1-0.5-0.5-0.9-0.1-0.3 0-0.2 0-0.6 0.1-0.6 0-0.7 0-0.7-0.1-0.3 0-0.3-0.1 0-0.1-0.1-0.2-0.1-0.1 0-0.1 0-0.4 0.1-2.1 0.6-2.2 0.3-0.3-0.1-0.1-0.1-0.1-0.1 0-0.2 0-0.2 0-1-0.1-0.3 0-0.1-0.3-0.5-0.2-0.4-0.2-0.5 0-0.3 0-0.3 0-0.4 0-0.1-0.1-0.4-0.1-0.2-0.1-0.2-0.6-0.5-0.6-0.7-5.8-3.6-1-0.5-0.7-0.2-1.8 0 0-6.4-0.1-8.5 0-4.2 0.2-1.5 1.4-4.1 0.3-0.8 0.4-1.2 1.7-5.1 0-0.4 0.2-0.7 0.5-1.7 0.3-0.9 0.1-0.3 0.4-0.7 0.3-0.7 1.7-5z"/>
         </g>
-        <circle class="map-hotspot" data-label="Rincón de los Sauces — Neuquén" cx="29.46" cy="211.32" r="4"/>
-        <circle class="map-hotspot" data-label="Añelo — Vaca Muerta" cx="40.62" cy="219.90" r="4"/>
-        <circle class="map-hotspot" data-label="Catriel — Río Negro" cx="57.26" cy="242.78" r="4"/>
-        <circle class="map-hotspot" data-label="Comodoro Rivadavia — Chubut" cx="94.96" cy="332.71" r="4"/>
-        <circle class="map-hotspot" data-label="Las Heras — Santa Cruz" cx="40.33" cy="366.06" r="4"/>
-        <circle class="map-hotspot" data-label="Río Grande — Tierra del Fuego" cx="79.74" cy="503.30" r="4"/>
-        <circle class="map-hotspot map-hotspot--office" data-label="Oficina Neuquén — Carlos Pellegrini 2131" cx="60.35" cy="217.32" r="4"/>
-        <circle class="map-hotspot map-hotspot--office" data-label="Oficina Puerto Madero — Juana Manso 1750" cx="179.31" cy="173.50" r="4"/>
+        <circle class="map-hotspot" data-label="Rincón de los Sauces — Neuquén" data-maps="Rincón de los Sauces, Neuquén, Argentina" cx="29.46" cy="211.32" r="4"/>
+        <circle class="map-hotspot" data-label="Añelo — Vaca Muerta" data-maps="Añelo, Neuquén, Argentina" cx="40.62" cy="219.90" r="4"/>
+        <circle class="map-hotspot" data-label="Catriel — Río Negro" data-maps="Catriel, Río Negro, Argentina" cx="57.26" cy="242.78" r="4"/>
+        <circle class="map-hotspot" data-label="Comodoro Rivadavia — Chubut" data-maps="Comodoro Rivadavia, Chubut, Argentina" cx="94.96" cy="332.71" r="4"/>
+        <circle class="map-hotspot" data-label="Las Heras — Santa Cruz" data-maps="Las Heras, Santa Cruz, Argentina" cx="40.33" cy="366.06" r="4"/>
+        <circle class="map-hotspot" data-label="Río Grande — Tierra del Fuego" data-maps="Río Grande, Tierra del Fuego, Argentina" cx="79.74" cy="503.30" r="4"/>
+        <circle class="map-hotspot map-hotspot--office" data-label="Oficina Neuquén — Carlos Pellegrini 2131" data-maps="Carlos Pellegrini 2131, Neuquén, Argentina" cx="60.35" cy="217.32" r="4"/>
+        <circle class="map-hotspot map-hotspot--office" data-label="Oficina Puerto Madero — Juana Manso 1750" data-maps="Juana Manso 1750, Puerto Madero, Buenos Aires, Argentina" cx="179.31" cy="173.50" r="4"/>
       </svg>
       <div id="map-tooltip" class="map-tooltip"></div>
       <svg width="24" height="24" viewBox="0 0 24 24" class="absolute top-4 right-4 text-accent/50" fill="currentColor"><path d="M12 2l2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2z"/></svg>
@@ -650,28 +650,28 @@
         <p class="text-white/45 text-sm max-w-xs leading-relaxed">Saber dónde hay que estar.</p>
       </div>
       <nav class="flex flex-col gap-3 text-sm text-white/60">
-        <a href="#home" class="hover:text-white transition">Inicio</a>
-        <a href="#nosotros" class="hover:text-white transition">Nosotros</a>
-        <a href="#servicios" class="hover:text-white transition">Servicios</a>
-        <a href="#sapiens" class="hover:text-white transition">Sapiens</a>
-        <a href="#well-services" class="hover:text-white transition">Well Services</a>
-        <a href="#contacto" class="hover:text-white transition">Contacto</a>
-        <a href="#clientes" class="hover:text-white transition">Clientes</a>
-        <a href="#empleo" class="hover:text-white transition">Empleo</a>
+        <a href="#home" class="nav-link">Inicio</a>
+        <a href="#nosotros" class="nav-link">Nosotros</a>
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#sapiens" class="nav-link">Sapiens</a>
+        <a href="#well-services" class="nav-link">Well Services</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+        <a href="#clientes" class="nav-link">Clientes</a>
+        <a href="#empleo" class="nav-link">Empleo</a>
       </nav>
       <div>
         <p class="text-white font-bold text-sm mb-3">Contactanos</p>
         <div class="flex flex-col gap-2.5 text-sm text-white/60">
-          <a href="mailto:info@bacssa.com" class="hover:text-white transition">info@bacssa.com</a>
-          <a href="https://www.instagram.com/bacssa_" target="_blank" rel="noopener" class="hover:text-white transition">IG</a>
-          <a href="https://www.linkedin.com/company/bacs-sa/" target="_blank" rel="noopener" class="hover:text-white transition">Linkedin</a>
+          <a href="mailto:info@bacssa.com" class="nav-link">info@bacssa.com</a>
+          <a href="https://www.instagram.com/bacssa_" target="_blank" rel="noopener" class="nav-link">IG</a>
+          <a href="https://www.linkedin.com/company/bacs-sa/" target="_blank" rel="noopener" class="nav-link">Linkedin</a>
         </div>
       </div>
       <div>
         <p class="text-white font-bold text-sm mb-3">Neuquén</p>
         <div class="flex flex-col gap-2.5 text-sm text-white/60">
           <span>Carlos Pellegrini 2131, PIN este.</span>
-          <a href="tel:08101220264" class="hover:text-white transition">0810 122 0264</a>
+          <a href="tel:08101220264" class="nav-link">0810 122 0264</a>
         </div>
       </div>
       <div>
@@ -688,6 +688,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=9"></script>
+<script src="script.js?v=10"></script>
 </body>
 </html>

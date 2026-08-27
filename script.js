@@ -133,7 +133,9 @@ const mapTooltip = document.getElementById('map-tooltip');
 const hotspots = document.querySelectorAll('.map-hotspot');
 if (mapTooltip && hotspots.length) {
   const mapContainer = mapTooltip.parentElement;
+  const locationItems = document.querySelectorAll('.location-list li');
   hotspots.forEach((spot) => {
+    const matchingItem = Array.from(locationItems).find((li) => li.dataset.label === spot.dataset.label);
     const showTooltip = () => {
       const spotRect = spot.getBoundingClientRect();
       const containerRect = mapContainer.getBoundingClientRect();
@@ -141,11 +143,19 @@ if (mapTooltip && hotspots.length) {
       mapTooltip.style.left = `${spotRect.left + spotRect.width / 2 - containerRect.left}px`;
       mapTooltip.style.top = `${spotRect.top - containerRect.top}px`;
       mapTooltip.classList.add('visible');
+      if (matchingItem) matchingItem.classList.add('is-highlighted');
     };
-    const hideTooltip = () => mapTooltip.classList.remove('visible');
+    const hideTooltip = () => {
+      mapTooltip.classList.remove('visible');
+      if (matchingItem) matchingItem.classList.remove('is-highlighted');
+    };
     spot.addEventListener('mouseenter', showTooltip);
     spot.addEventListener('mouseleave', hideTooltip);
     spot.addEventListener('touchstart', (e) => { e.stopPropagation(); showTooltip(); }, { passive: true });
+    spot.addEventListener('click', () => {
+      const query = encodeURIComponent(spot.dataset.maps || spot.dataset.label);
+      window.open(`https://www.google.com/maps/search/?api=1&query=${query}`, '_blank', 'noopener');
+    });
   });
   document.addEventListener('touchstart', (e) => {
     if (!e.target.closest('.map-hotspot')) hideAllTooltips();

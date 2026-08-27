@@ -8,6 +8,9 @@
 
 * { font-family: 'Inter', system-ui, sans-serif; }
 
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 90px; }
+
 body { background: #ffffff; color: var(--ink); }
 
 .text-primary { color: var(--primary); }
@@ -39,6 +42,37 @@ body { background: #ffffff; color: var(--ink); }
   background: rgba(6, 13, 26, 0.92);
   backdrop-filter: blur(8px);
   box-shadow: 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -5px;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  transition: right 0.25s ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: #fff;
+  text-shadow: 0 0 14px rgba(94,177,255,0.9), 0 0 28px rgba(94,177,255,0.5);
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after { right: 0; }
+
+.icon-btn { transition: color 0.25s ease, filter 0.25s ease; }
+.icon-btn:hover {
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px rgba(94,177,255,0.85));
 }
 
 /* ---- hero ---- */
@@ -407,6 +441,14 @@ body { background: #ffffff; color: var(--ink); }
 .map-hotspot--office {
   fill: #f0b429;
   filter: drop-shadow(0 0 4px rgba(240,180,41,0.85));
+}
+
+.location-list li {
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+.location-list li.is-highlighted {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(94,177,255,0.8);
 }
 .map-tooltip {
   position: absolute;
